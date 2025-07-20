@@ -1,0 +1,26 @@
+pdf_parser:
+  model_specs: 
+    model_name: vidore/colqwen2-v1.0
+    device_map: cpu
+    attn_implementation: eager
+
+weaviate:
+  connection:
+    type: ec2
+    host: your-ec2-private-ip
+    
+  collection:
+    name: colqwen
+    properties:
+      - name: pdf_title
+        type: TEXT
+      - name: page_number
+        type: INT
+      - name: base64_image
+        type: TEXT
+
+    vectorizer:
+      name: colqwen_vector
+      type: none
+      index_type: hnsw
+      multi_vector: true
