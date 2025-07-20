@@ -43,3 +43,6 @@ weaviate-key*
 # Env files
 .env
 .env.*
+
+# Pycache
+__pycache__
